@@ -17,30 +17,8 @@ import { useStore } from "../store/useStore";
 import { getGradeColor } from "../utils";
 
 export const OverviewTab: React.FC = () => {
-  const { result, previousScore, theme } = useStore();
+  const { result, previousScore } = useStore();
   const [animatedScore, setAnimatedScore] = useState(0);
-  const isDark = theme !== "light";
-
-  const tooltipProps = {
-    contentStyle: {
-      backgroundColor: isDark ? "#181B26" : "#FFFFFF",
-      borderColor: isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.1)",
-      borderRadius: "12px",
-      fontSize: "12px",
-      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.4)",
-      padding: "8px 12px",
-    },
-    itemStyle: {
-      color: isDark ? "#E2E8F0" : "#334155",
-      fontSize: "12px",
-      paddingTop: "2px",
-    },
-    labelStyle: {
-      color: isDark ? "#FFFFFF" : "#0F172A",
-      fontWeight: 600,
-      marginBottom: "4px",
-    },
-  };
 
   useEffect(() => {
     if (!result) return;
@@ -289,7 +267,14 @@ export const OverviewTab: React.FC = () => {
                       <Cell key={`cell-${index}`} fill={entry.color} />
                     ))}
                   </Pie>
-                  <Tooltip {...tooltipProps} />
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: "#12141C",
+                      borderColor: "rgba(255,255,255,0.1)",
+                      borderRadius: "12px",
+                      fontSize: "12px",
+                    }}
+                  />
                 </PieChart>
               </ResponsiveContainer>
             )}
@@ -316,7 +301,14 @@ export const OverviewTab: React.FC = () => {
               <BarChart data={categoryData} layout="vertical" margin={{ left: 20, right: 20 }}>
                 <XAxis type="number" stroke="#64748B" fontSize={11} allowDecimals={false} />
                 <YAxis dataKey="name" type="category" stroke="#94A3B8" fontSize={11} width={90} />
-                <Tooltip {...tooltipProps} />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: "#12141C",
+                    borderColor: "rgba(255,255,255,0.1)",
+                    borderRadius: "12px",
+                    fontSize: "12px",
+                  }}
+                />
                 <Bar dataKey="count" radius={[0, 6, 6, 0]}>
                   {categoryData.map((entry, index) => (
                     <Cell key={`cat-${index}`} fill={entry.fill} />
@@ -345,7 +337,14 @@ export const OverviewTab: React.FC = () => {
               <BarChart data={functionComplexityData} margin={{ top: 10, right: 10, left: -20, bottom: 20 }}>
                 <XAxis dataKey="name" stroke="#94A3B8" fontSize={11} interval={0} angle={-25} textAnchor="end" />
                 <YAxis stroke="#64748B" fontSize={11} allowDecimals={false} />
-                <Tooltip {...tooltipProps} />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: "#12141C",
+                    borderColor: "rgba(255,255,255,0.1)",
+                    borderRadius: "12px",
+                    fontSize: "12px",
+                  }}
+                />
                 <ReferenceLine y={10} stroke="#EF4444" strokeDasharray="3 3" />
                 <Bar dataKey="complexity" radius={[6, 6, 0, 0]}>
                   {functionComplexityData.map((entry, index) => (
