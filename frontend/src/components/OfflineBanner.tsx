@@ -1,7 +1,7 @@
 import React from "react";
 import { AlertTriangle, RefreshCw, Terminal } from "lucide-react";
 import { useStore } from "../store/useStore";
-import { checkHealth, analyzeCode } from "../api/client";
+import { checkHealth, analyzeCode, API_BASE_URL } from "../api/client";
 import toast from "react-hot-toast";
 
 export const OfflineBanner: React.FC = () => {
@@ -31,7 +31,7 @@ export const OfflineBanner: React.FC = () => {
           <AlertTriangle className="w-4 h-4 text-red-400 shrink-0" />
           <span>
             <strong>Backend Offline:</strong> Analysis server at{" "}
-            <code className="bg-black/30 px-1.5 py-0.5 rounded text-xs text-red-300">http://localhost:8000</code> is
+            <code className="bg-black/30 px-1.5 py-0.5 rounded text-xs text-red-300">{API_BASE_URL}</code> is
             unreachable.
           </span>
         </div>

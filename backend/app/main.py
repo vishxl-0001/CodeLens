@@ -26,15 +26,21 @@ app = FastAPI(
 )
 
 # CORS configuration
+cors_origins_env = os.getenv("CORS_ORIGINS")
+allowed_origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "https://code-lens-sage.vercel.app",
+]
+if cors_origins_env:
+    allowed_origins.extend([orig.strip() for orig in cors_origins_env.split(",") if orig.strip()])
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-        "*",
-    ],
+    allow_origins=allowed_origins,
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
