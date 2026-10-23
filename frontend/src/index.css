@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Monaco Editor Decorations */
+.squiggle-critical {
+  text-decoration: underline wavy #ef4444 1.5px !important;
+  text-underline-offset: 3px;
+  background-color: rgba(239, 68, 68, 0.08);
+}
+
+.squiggle-high {
+  text-decoration: underline wavy #f97316 1.5px !important;
+  text-underline-offset: 3px;
+  background-color: rgba(249, 115, 22, 0.08);
+}
+
+.squiggle-medium {
+  text-decoration: underline wavy #eab308 1.5px !important;
+  text-underline-offset: 3px;
+  background-color: rgba(234, 179, 8, 0.08);
+}
+
+.squiggle-low {
+  text-decoration: underline wavy #38bdf8 1.5px !important;
+  text-underline-offset: 3px;
+  background-color: rgba(56, 189, 248, 0.08);
+}
+
+/* Flash line highlight when an issue card is clicked */
+.line-flash-highlight {
+  background-color: rgba(99, 102, 241, 0.35) !important;
+  border-left: 3px solid #818cf8 !important;
+  transition: background-color 1s ease-out;
+}
+
+/* Gutter icons */
+.gutter-critical {
+  background: #ef4444;
+  border-radius: 50%;
+  width: 6px !important;
+  height: 6px !important;
+  margin-left: 6px;
+  margin-top: 6px;
+}
+.gutter-high {
+  background: #f97316;
+  border-radius: 50%;
+  width: 6px !important;
+  height: 6px !important;
+  margin-left: 6px;
+  margin-top: 6px;
+}
+.gutter-medium {
+  background: #eab308;
+  border-radius: 50%;
+  width: 6px !important;
+  height: 6px !important;
+  margin-left: 6px;
+  margin-top: 6px;
+}
+.gutter-low {
+  background: #38bdf8;
+  border-radius: 50%;
+  width: 6px !important;
+  height: 6px !important;
+  margin-left: 6px;
+  margin-top: 6px;
+}
